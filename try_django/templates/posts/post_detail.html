@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container col-sm-8 col-sm-offset-2 detail post">
+  <div class="row">
+    {% if instance.image %}
+      <img src="{{ instance.image.url }}" class=img-responsive />
+    {% endif %}
+  </div>
+  <div class="col-sm-2">
+    <a href="{{ obj.get_absolute_url }}edit/">
+      <button type="button" class=post_btn>Edit</button>
+    </a>
+    <a href="{{ obj.get_absolute_url }}delete/">
+      <button type="button" class=post_btn>Delete</button>
+    </a>
+  </div>
+  <div class="col-sm-9">
+    <p class="title"><strong>{{ instance.title }}</strong></p>
+    <p>{{ instance.content|linebreaks }}</p>
+  </div>
+  <div class="sol-sm-1">
+    <p class="pull-right post_id">#{{ instance.id }}</p>
+  </div>
+  <div class="row">
+    <div class="col-sm-6">
+      <p class="timestamp">Edited: {{ instance.updated | timesince}} ago</p>
+    </div>
+    <div class="col-sm-6">
+      <p class="timestamp pull-right">Created: {{ instance.timestamp }}</p>
+    </div>
+  </div>
+
+</div>
+<br>
+{% endblock %}

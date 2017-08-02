@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+{% block title %}
+<title>Feed</title>
+{% endblock title %}
+{% block content %}
+<div class="row">
+  <div class="container col-sm-8 col-sm-offset-2 feed_header">
+    <div class="pull-left">
+      <h4><strong>Feed</strong></h4>
+    </div>
+    <div class="pull-right">
+      <h5>Total Posts: {{ total }}</h5>
+    </div>
+  </div>
+</div>
+{% for obj in object_list %}
+<div class="container col-sm-8 col-sm-offset-2 post">
+  <div class="row">
+    <div class="col-sm-2">
+    {% if obj.image %}
+      <a href="{{ obj.get_absolute_url }}" >
+        <img src="{{ obj.image.url }}" alt="" class="img-responsive" id=thumbnail>
+      </a>
+    {% endif %}
+    </div>
+    <div class="col-sm-8">
+      <p class=title><a href="{{ obj.get_absolute_url }}"><strong>{{ obj.title }}</strong></a></p>
+      <p>{{ obj.content|truncatechars:100 }}</p>
+    </div>
+    <div class="col-sm-2">
+      <p class="post_id pull-right">#{{ obj.id }}</p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-6">
+      <div class="timestamp">Edited: {{ obj.updated | timesince}} ago</div>
+    </div>
+    <div class="col-sm-6">
+      <p class="timestamp pull-right">Created: {{ obj.timestamp }}</p>
+    </div>
+  </div>
+</div>
+<br>
+{% endfor %}
+<div class="container col-sm-8 col-sm-offset-2">
+  <div class="row">
+    <div class="container col-sm-4 post_count">
+    </div>
+    <div class="container col-sm-4 pagination text-center">
+      <div class="row">
+        <span class="current">
+            Page {{ object_list.number }} of {{ object_list.paginator.num_pages }}
+        </span>
+      </div>
+        <div class="row">
+          <span class="step-links">
+              {% if object_list.has_previous %}
+                <a href="?page={{ object_list.previous_page_number }}">
+                  <button type="button" name="button" class=post_btn>Previous</button>
+                </a>
+              {% else %}
+                <a class="disabled">
+                  <button type="button" name="button" class=post_btn>Previous</button>
+                </a>
+              {% endif %}
+              {% if object_list.has_next %}
+              <a href="?page={{ object_list.next_page_number }}">
+                <button type="button" name="button" class=post_btn>Next</button>
+              </a>
+              {% else %}
+                <a class="disabled">
+                  <button type="button" name="button" class=post_btn>Next</button>
+                </a>
+              {% endif %}
+          </span>
+        </div>
+    </div>
+  </div>
+</div>
+{% endblock content %}

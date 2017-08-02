@@ -1,0 +1,85 @@
+.timestamp {
+  font-size: 10px;
+  padding-top: 10px;
+}
+
+.post {
+  background-color: #333;
+  border: 2px solid #888;
+  border-radius: 10px;
+  margin-bottom: 1%;
+  color: #aaa;
+}
+
+.title {
+  font-size: 35px;
+  margin-top: 5px;
+}
+
+.page-title {
+  text-align: center;
+}
+
+.home_page {
+  background-image: url(/static/img/bg.jpg);
+  background-size: cover;
+  background-position: center;
+}
+
+.form {
+  height: 50px;
+  width: 100px;
+  align-self: center;
+}
+
+.post_id {
+  font-size: 12px;
+  margin-top: 10px;
+}
+
+.post_btn {
+  color: #39A4FC;
+  margin-top: 2%;
+  width: 100px;
+  background-color: #000;
+}
+
+.post img {
+  padding: 1%;
+}
+
+.post #thumbnail {
+  margin-top: 10%;
+}
+
+.disabled .post_btn {
+  color: #194970;
+}
+
+.feed_header {
+  color: #aaa;
+  padding: 0 10% 0 10%;
+}
+
+.content {
+  color: #ccc;
+  margin-top: 50px;
+  font-size: 14px;
+}
+
+.detail {
+  margin-top: 40px;
+}
+
+.main_page_content {
+  padding: 100px;
+  text-shadow: 2px 2px #333;
+}
+
+.post_count {
+  margin-top: 20px;
+}
+
+.post_thumbnail {
+  padding: 5% 0 0 0;
+}

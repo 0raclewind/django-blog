@@ -1,0 +1,43 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="shortcut icon" href="{%  static 'favicon.ico' %}">
+    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+    <meta charset="utf-8">
+    {% block title %}
+    <title>Thug House</title>
+    {% endblock %}
+  </head>
+  <body style="background-color: #444">
+    <div class="header">
+      <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+          <div class="navbar-header">
+            <a class="navbar-brand" href="\"><strong>Thug House</strong></a>
+          </div>
+          <ul class="nav navbar-nav">
+            <li><a href="/posts">Posts</a></li>
+            <li><a href="/posts/create">Create post</a></li>
+          </ul>
+          <ul class="nav navbar-nav pull-right">
+            <li class="active pull-right"><a href="/login">Login</a></li>
+            <li><a href="/register">Register</a></li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+    <div class="content">
+      {% block content %}
+      <div class="jumbotron img-fluid home_page">
+        <div class="container text-center main_page_content">
+          <h1><strong>Welcome to Thug House</strong></h1>
+          <p>You might be in the right place</p>
+          <br>
+        </div>
+      </div>
+      {% endblock %}
+    </div>
+</body>
+</html>
